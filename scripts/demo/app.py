@@ -387,7 +387,7 @@ def demo(
 
         if checkpoint is not None:
             model: FlowPokeTransformer = FlowPokeTransformer_Base()
-            checkpoint = torch.load(checkpoint)
+            checkpoint = torch.load(checkpoint, weights_only=True)
             model.load_state_dict(checkpoint["model"])
         else:
             model = torch.hub.load(".", "fpt_base", source="local")
